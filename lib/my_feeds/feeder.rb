@@ -4,14 +4,11 @@ module MyFeeds
 
     included do
       has_many :source_feeds, class_name: Feed.to_s, as: :source, dependent: :destroy
-      class_attribute :feeder_feed_events
-      self.feeder_feed_events = {}
     end
 
     module ClassMethods
       def define_feed_event event, conditions = {}
         conditions.freeze
-        Feeder.feeder_feed_events[event.to_sym] = conditions.merge(source_type: self.class.to_s, event: event).freeze
         define_method(event) do |options = {}|
           attributes = {source_type: self.class.to_s, source_id: self.id, event: event}.merge!(conditions).merge! options
           Feed.create attributes
