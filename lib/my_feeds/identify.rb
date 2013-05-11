@@ -21,15 +21,15 @@ module MyFeeds
       end
 
       def polymorphic_identify_column
-        "#{feed_polymorphic_name}_identify"
+        :"#{feed_polymorphic_name}_identify"
       end
 
       def polymorphic_id_column
-        "#{feed_polymorphic_name}_id"
+        :"#{feed_polymorphic_name}_id"
       end
 
       def polymorphic_type_column
-        "#{feed_polymorphic_name}_type"
+        :"#{feed_polymorphic_name}_type"
       end
     end
   end
