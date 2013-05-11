@@ -1,4 +1,4 @@
-class MyFeedsMigration < ActiveRecord::Migration
+class LikesMigration < ActiveRecord::Migration
   def change
     create_table :likes do |t|
       t.string :source_identify, null: false
