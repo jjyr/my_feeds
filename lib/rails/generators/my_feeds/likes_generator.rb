@@ -5,11 +5,11 @@ module MyFeeds
       include Rails::Generators::Migration
 
       def self.source_root
-        @source_root ||= File.join(File.dirname(__FILE__), 'templates')
+        @source_root ||= File.join(File.dirname(__FILE__), '../templates')
       end
 
       def create_migration_file
-        migration_template 'migration.rb', 'db/migrate/my_feeds_migration.rb'
+        migration_template 'likes_migration.rb', 'db/migrate/likes_migration.rb'
       end
 
       def self.next_migration_number(dirname)
@@ -21,7 +21,7 @@ module MyFeeds
       end
 
       def create_model
-        template "model.rb", File.join('app/models', "feed.rb")
+        template "like_model.rb", File.join('app/models', "like.rb")
       end
     end
   end
