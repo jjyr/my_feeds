@@ -1,19 +1,20 @@
-require 'rails/generators'
-require 'rails/generators/migration'
+module MyFeeds
+  module Generators
+    class MyFeedsGenerator < Rails::Generators::Base
 
-class MyFeedsGenerator < Rails::Generators::Base
+      include Rails::Generators::Migration
 
-  include Rails::Generators::Migration
+      def self.source_root
+        @source_root ||= File.join(File.dirname(__FILE__), 'templates')
+      end
 
-  def self.source_root
-    @source_root ||= File.join(File.dirname(__FILE__), 'templates')
-  end
+      def create_migration_file
+        migration_template 'migration.rb', 'db/migrate/my_feeds_migration.rb'
+      end
 
-  def create_migration_file
-    migration_template 'migration.rb', 'db/migrate/my_feeds_migration.rb'
-  end
-
-  def create_model
-    template "model.rb", File.join('app/models', "feed.rb")
+      def create_model
+        template "model.rb", File.join('app/models', "feed.rb")
+      end
+    end
   end
 end
