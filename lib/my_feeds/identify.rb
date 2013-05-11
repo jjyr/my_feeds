@@ -3,15 +3,15 @@ module MyFeeds
     extend ActiveSupport::Concern
 
     included do
-      before_save :save_feed_indentify
+      before_save :save_feed_identify
       class_attribute :feed_polymorphic_name
       self.feed_polymorphic_name = self == Feed ? :source : default_feed_polymorphic_name
-      delegate :default_feed_polymorphic_name, :polymorphic_indentify_column, :polymorphic_id_column, :polymorphic_type_column, to: :"self.class"
+      delegate :default_feed_polymorphic_name, :polymorphic_identify_column, :polymorphic_id_column, :polymorphic_type_column, to: :"self.class"
     end
 
     protected
-    def save_feed_indentify
-      instance_eval %Q{self.#{polymorphic_indentify_column} = #{polymorphic_id_column}.to_s + #{polymorphic_type_column}.to_s.underscore}
+    def save_feed_identify
+      instance_eval %Q{self.#{polymorphic_identify_column} = #{polymorphic_id_column}.to_s + #{polymorphic_type_column}.to_s.underscore}
     end
 
     private
@@ -20,8 +20,8 @@ module MyFeeds
         self.to_s.underscore
       end
 
-      def polymorphic_indentify_column
-        "#{feed_polymorphic_name}_indentify"
+      def polymorphic_identify_column
+        "#{feed_polymorphic_name}_identify"
       end
 
       def polymorphic_id_column
