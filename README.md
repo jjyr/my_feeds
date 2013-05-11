@@ -1,11 +1,9 @@
 # MyFeeds
 
--------------------------------------
 Help you implement feeds / timeline in rails application.
 
 ## Installation
 
-------------------------------------
 Add this line to your application's Gemfile:
 
     gem 'my_feeds'
@@ -20,7 +18,6 @@ Or install it yourself as:
 
 ## Usage
 
-------------------------------------
 
 ####before usage
 my_feeds need three type model at least
@@ -165,7 +162,6 @@ end
 
 ## Contributing
 
--------------------
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
