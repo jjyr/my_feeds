@@ -1,5 +1,6 @@
 require "my_feeds/version"
 
 module MyFeeds
-  # Your code goes here...
+  autoload :Feeder, 'my_feeds/feeder'
+  autoload :Eater, 'my_feeds/eater'
 end
