@@ -1,4 +1,4 @@
-class CreateFeeds < ActiveRecord::Migration
+class MyFeedsMigration < ActiveRecord::Migration
   def change
     create_table :feeds do |t|
       #necessarily
