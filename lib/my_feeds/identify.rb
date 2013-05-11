@@ -6,7 +6,7 @@ module MyFeeds
       before_save :save_feed_indentify
       class_attribute :feed_polymorphic_name
       self.feed_polymorphic_name = self == Feed ? :source : default_feed_polymorphic_name
-      delegate :default_feed_polymorphic_name, :polymorphic_indentify_column, :polymorphic_id_column, :polymorphic_type_column, to: :class
+      delegate :default_feed_polymorphic_name, :polymorphic_indentify_column, :polymorphic_id_column, :polymorphic_type_column, to: :"self.class"
     end
 
     protected
