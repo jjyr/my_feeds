@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["jjyruby@gmail.com"]
   spec.description   = %q{Help you implement feeds / timeline in rails application.}
   spec.summary       = %q{my_feeds provide feed model and some helper methods, allow you to customize.}
-  spec.homepage      = "github.com/jjyr/my_feeds"
+  spec.homepage      = "https://github.com/jjyr/my_feeds"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
