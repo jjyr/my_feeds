@@ -1,6 +1,6 @@
 class Like < ActiveRecord::Base
   include MyFeeds::Identify
-  self.feed_polymorphic_name = :likeable
+  self.feed_polymorphic = :likeable
   #attr_accessible
 
   belongs_to :likeable, polymorphic: true

@@ -47,14 +47,14 @@ and
 ```
 class YourCustomModel < ActiveRecord::Base
   include MyFeeds::Identify #make sure include this module
-  self.feed_polymorphic_name = :likeable #and set this, in this case is likeable, it should same as the polymorphic belongs_to
+  self.feed_polymorphic = :likeable #and set this, in this case is likeable, it should same as the polymorphic belongs_to
 
-  #same as self.feed_polymorphic_name
+  #same as self.feed_polymorphic
   belongs_to :likeable, polymorphic: true
 end
 
 # you should create a migration like below
-# in this case, this column name is likeable_identify, it depends on feed_polymorphic_name
+# in this case, this column name is likeable_identify, it depends on feed_polymorphic
 #add_column :your_customs, :likeable_identify, :string, null: false
 ```
 
