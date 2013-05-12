@@ -20,9 +20,7 @@ Or install it yourself as:
 
 
 ####before usage
-my_feeds need three type model at least
-
-`feeder`, `eater` and associate model
+my_feeds need `feeder`, `eater` and associate model
 
 feeder publish feeds
 
@@ -47,12 +45,17 @@ just make sure your model have a polymorphic field for feeder.
 
 and
 ```
-class YourModel < ActiveRecord::Base
+class YourCustomModel < ActiveRecord::Base
   include MyFeeds::Identify #make sure include this module
-  self.feed_polymorphic_name = :xxx #and set this, in this case is xxx, same with polymorphic belongs_to
+  self.feed_polymorphic_name = :likeable #and set this, in this case is likeable, it should same as the polymorphic belongs_to
 
-  belongs_to :xxx, polymorphic: true
+  #same as self.feed_polymorphic_name
+  belongs_to :likeable, polymorphic: true
 end
+
+# you should create a migration like below
+# in this case, this column name is likeable_identify, it depends on feed_polymorphic_name
+#add_column :your_customs, :likeable_identify, :string, null: false
 ```
 
 ####feeder
