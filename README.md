@@ -46,7 +46,7 @@ just make sure your model have a polymorphic field for feeder.
 and
 ```
 class YourCustomModel < ActiveRecord::Base
-  include MyFeeds::Identify #make sure include this module
+  include MyFeeds::Associate #make sure include this module
   self.feed_polymorphic = :likeable #and set this, in this case is likeable, it should same as the polymorphic belongs_to
 
   #same as self.feed_polymorphic
