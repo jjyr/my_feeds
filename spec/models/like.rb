@@ -1,5 +1,5 @@
 class Like < ActiveRecord::Base
-  include MyFeeds::Identify
+  include MyFeeds::Associate
   self.feed_polymorphic = :likeable
   #attr_accessible
 
