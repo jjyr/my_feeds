@@ -1,27 +1,21 @@
+require 'rails/generators/active_record'
+
 module MyFeeds
   module Generators
-    class MyFeedsGenerator < Rails::Generators::Base
+    class MyFeedsGenerator < ActiveRecord::Generators::Base
 
-      include Rails::Generators::Migration
+      argument :name, :type => :string, :default => 'my_feeds'
 
       def self.source_root
         @source_root ||= File.join(File.dirname(__FILE__), 'templates')
       end
 
-      def create_migration_file
-        migration_template 'migration.rb', 'db/migrate/my_feeds_migration.rb'
-      end
-
-      def self.next_migration_number(dirname)
-        if ActiveRecord::Base.timestamped_migrations
-          Time.now.utc.strftime("%Y%m%d%H%M%S")
-        else
-          "%.3d" % (current_migration_number(dirname) + 1)
-        end
+      def create_migration
+        migration_template 'feeds_migration.rb', 'db/migrate/my_feeds_migration.rb'
       end
 
       def create_model
-        template "model.rb", File.join('app/models', "feed.rb")
+        template "feed.rb", File.join('app/models', "feed.rb")
       end
     end
   end
