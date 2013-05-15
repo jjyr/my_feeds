@@ -17,7 +17,7 @@ module MyFeeds
         @_feed_polymorphic = polymorphic
         class_eval %Q{
           def save_feed_identify
-            self.#{polymorphic_identify_column} = "#\{#{polymorphic_id_column}.to_s\}@#\{#{polymorphic_type_column}.to_s.underscore\}"
+            self.#{polymorphic_identify_column} = "#\{#{polymorphic_id_column}.to_s\}:#\{#{polymorphic_type_column}.to_s.underscore\}"
           end
           protected :save_feed_identify
         }
