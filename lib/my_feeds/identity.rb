@@ -23,10 +23,6 @@ module MyFeeds
         }
       end
 
-      # def default_feed_polymorphic
-      #   self.to_s.underscore
-      # end
-
       def polymorphic_identity_column
         :"#{feed_polymorphic}_identity"
       end

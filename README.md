@@ -54,8 +54,8 @@ class YourCustomModel < ActiveRecord::Base
 end
 
 # you should create a migration like below
-# in this case, this column name is likeable_identify, it depends on feed_polymorphic
-#add_column :your_customs, :likeable_identify, :string, null: false
+# in this case, this column name is likeable_identity, it depends on feed_polymorphic
+#add_column :your_customs, :likeable_identity, :string, null: false
 ```
 
 ####feeder
