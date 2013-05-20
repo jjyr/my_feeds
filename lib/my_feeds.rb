@@ -3,8 +3,8 @@ require "my_feeds/version"
 module MyFeeds
   autoload :Feeder, 'my_feeds/feeder'
   autoload :Eater, 'my_feeds/eater'
-  autoload :Identify, 'my_feeds/identify'
+  autoload :Identity, 'my_feeds/identity'
   
   #alias
-  Associate = Identify
+  Associate = Identity
 end

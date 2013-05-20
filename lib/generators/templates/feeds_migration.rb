@@ -3,7 +3,7 @@ class MyFeedsMigration < ActiveRecord::Migration
     create_table :feeds do |t|
       #necessarily
       t.references :source, :polymorphic => true, :null => false
-      t.string :source_identify, null: false
+      t.string :source_identity, null: false
       t.string :event, null: false
 
       #not necessarily, but maybe you need
@@ -13,6 +13,6 @@ class MyFeedsMigration < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :feeds, :source_identify
+    add_index :feeds, :source_identity
   end
 end

@@ -1,8 +1,8 @@
 class LikesMigration < ActiveRecord::Migration
   def change
     create_table :likes do |t|
-      #this table must have xxx_identify, xxx_id, xxx_type 3 columns
-      t.string :likeable_identify, null: false
+      #this table must have xxx_identity, xxx_id, xxx_type 3 columns
+      t.string :likeable_identity, null: false
       t.references :likeable, :polymorphic => true, :null => false
 
       #you maybe need change this column
