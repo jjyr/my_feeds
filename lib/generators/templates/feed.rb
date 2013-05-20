@@ -1,5 +1,5 @@
 class Feed < ActiveRecord::Base
-  include MyFeeds::Identify
+  include MyFeeds::Identity
   attr_accessible :source_id, :source_type, :event, :target_id, :target_type
 
   #verify event uniqueness
