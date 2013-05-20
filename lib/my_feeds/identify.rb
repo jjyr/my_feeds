@@ -4,8 +4,8 @@ module MyFeeds
 
     included do
       before_save :save_feed_identify
-      self.feed_polymorphic = self == Feed ? :source : default_feed_polymorphic
-      delegate :default_feed_polymorphic, :polymorphic_identify_column, :polymorphic_id_column, :polymorphic_type_column, to: :"self.class"
+      init_feeds_polymorphic :source if self == Feed
+      delegate :polymorphic_identify_column, :polymorphic_id_column, :polymorphic_type_column, to: :"self.class"
     end
 
     module ClassMethods
@@ -13,7 +13,7 @@ module MyFeeds
         @_feed_polymorphic
       end
 
-      def feed_polymorphic= polymorphic
+      def init_feeds_polymorphic polymorphic
         @_feed_polymorphic = polymorphic
         class_eval %Q{
           def save_feed_identify
@@ -23,9 +23,9 @@ module MyFeeds
         }
       end
 
-      def default_feed_polymorphic
-        self.to_s.underscore
-      end
+      # def default_feed_polymorphic
+      #   self.to_s.underscore
+      # end
 
       def polymorphic_identify_column
         :"#{feed_polymorphic}_identify"
