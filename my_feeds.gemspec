@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = MyFeeds::VERSION
   spec.authors       = ["jjy"]
   spec.email         = ["jjyruby@gmail.com"]
-  spec.description   = %q{Help you implement feeds / timeline in rails application.}
+  spec.description   = %q{Help you implement feeds / timeline / public activity in rails application.}
   spec.summary       = %q{my_feeds provide feed model and some helper methods, allow you to customize.}
   spec.homepage      = "https://github.com/jjyr/my_feeds"
   spec.license       = "MIT"
