@@ -19,7 +19,7 @@ Or install it yourself as:
 ## Usage
 
 
-####before usage
+#### before usage
 my_feeds need `feeder`, `eater` and associate model
 
 feeder publish feeds
@@ -30,15 +30,15 @@ and associate model create a relation between feeder and eater
 
 yes, like subscribe and publish
 
-####feed model
+#### feed model
 feed model is what feeder published and  eater subscribed, you can customize it.
 
 `rails generate my_feeds`
 
-####associate model
+#### associate model
 
 `rails generate my_feeds:likes`
-#####use own associate model
+##### use own associate model
 you can also use your own associate model.
 
 just make sure your model have a polymorphic field for feeder.
@@ -58,7 +58,7 @@ end
 #add_column :your_customs, :likeable_identity, :string, null: false
 ```
 
-####feeder
+#### feeder
 
 include MyFeeds::Feeder in your model which will as feed source
 
@@ -113,7 +113,7 @@ user.hahahaha target_id: another_user.id
 user.source_feeds.last.target_type #=> User
 ```
 
-####eater
+#### eater
 include MyFeeds::Eater in your model which will as feed receiver
 
 ```ruby
